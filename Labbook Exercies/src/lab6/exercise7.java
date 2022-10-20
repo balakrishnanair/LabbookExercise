@@ -1,42 +1,45 @@
 package lab6;
 import java.util.*;
+/*
+ * Exercise 7: Create a method which accepts an integer array, reverse the 
+ * numbers in the array and returns the resulting array in sorted order
+ */
 public class exercise7 {
 
 
-	public static void main(String[] args)
-	{
+	public static int[] getSorted(int[] a) {
 		
-		int arr[]= {23,98,6,55,76,19,9,81,91,94,10,11};
-		exercise7 lb7= new exercise7();
-		int arr2[]=lb7.getSorted(arr);
-		for(int i=0;i<arr2.length;i++)
-		{
-			System.out.println(arr2[i]);
+		for (int i=0;i<a.length;i++) {
+			int s = 0;
+			while (a[i] > 0) {
+				int d = a[i]%10;
+				a[i] = a[i]/10;
+				s = s*10 + d;
+			}
+			a[i] = s;
 		}
+		Arrays.sort(a);
+		return a;
 	}
-	public int[] getSorted(int[] arr)
-	{
-		List<Integer> lst= new ArrayList();
-		for(int i=0;i<arr.length;i++)
-		{
-			StringBuilder str= new StringBuilder();
-			str.append(arr[i]);
-			str.reverse();
-			String str1=str.toString();
-			System.out.println(str1);
-			int n=Integer.valueOf(str1);
-			lst.add(n);
+	
+	public static void main(String[] args) {
+		
+		Scanner sc = new Scanner(System.in);
+		
+		System.out.print("Enter the length of the array: ");
+		int n = Integer.parseInt(sc.nextLine());
+		
+		int[] a = new int[n];
+		
+		System.out.println("Enter the elements of the array: ");
+		
+		for (int i=0;i<n;i++) {
+			a[i] = sc.nextInt();
 		}
-		System.out.println(lst);
-		Collections.sort(lst);
-		int arr1[] =new int[arr.length];
-		int count=0;
-		Iterator itr =lst.iterator();
-		while(itr.hasNext())
-		{
-			arr1[count]=(int) itr.next();
-			count++;
-		}
-		return arr1;
+		
+		System.out.println(Arrays.toString(getSorted(a)));
+		
+		sc.close();
 	}
+
 }

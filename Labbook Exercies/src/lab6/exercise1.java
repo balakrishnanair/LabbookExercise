@@ -1,4 +1,9 @@
 package lab6;
+
+/*
+ * Exercise 1: Create a method which accepts a 
+ * hash map and return the values of the map in sorted order as a List.
+ */
 import java.util.*;
 import java.util.Map.Entry;
 public class exercise1 {
