@@ -1,4 +1,8 @@
 package lab5;
+/*
+ * Exercise 1:  Validate the age of a person and display proper 
+ * message by using user defined exception. Age of a person should be above 15.
+ */
 import java.util.*;
 
 public class Example1 extends Exception{
